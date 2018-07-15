@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { ProppyProvider } from 'proppy-react';
 import { init } from '@rematch/core';
 import selectorPlugin from '@rematch/select';
+import '@blueprintjs/core/lib/css/blueprint.css';
+import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import 'bulma/css/bulma.css';
 import './index.css';
 import App from './components/App';

@@ -1,28 +1,43 @@
 import React from 'react';
+import {
+  Navbar,
+  NavbarGroup,
+  NavbarHeading,
+  NavbarDivider,
+  Alignment,
+  InputGroup,
+  Button,
+} from '@blueprintjs/core';
 import { dispatch } from '@rematch/core';
 
+const newNoteTemplate = {
+  title: '',
+  content: '',
+};
+
 const NavBar = () => (
-  <div className="navbar is-fixed-top is-black">
+  <Navbar fixedToTop className="bp3-dark">
     <div className="container">
-      <div className="navbar-brand">
-        <a className="navbar-item brand-text">
-          Notes App
-        </a>
-      </div>
-      <div className="navbar-menu">
-        <div className="navbar-end">
-          <div className="navbar-item">
-            <input
-              className="input"
-              type="text"
-              placeholder="Search notes..."
-              onChange={event => dispatch.note.setSearchTerm(event.target.value)}
-            />
-          </div>
-        </div>
-      </div>
+      <NavbarGroup>
+        <NavbarHeading>Notes App</NavbarHeading>
+      </NavbarGroup>
+      <NavbarGroup align={Alignment.RIGHT}>
+        <Button
+          text="New Note"
+          icon="plus"
+          minimal
+          onClick={() => dispatch.note.updateEditableNote(newNoteTemplate)}
+        />
+        <NavbarDivider />
+        <InputGroup
+          type="search"
+          placeholder="Search notes..."
+          onChange={event => dispatch.note.setSearchTerm(event.target.value)}
+          leftIcon="search"
+        />
+      </NavbarGroup>
     </div>
-  </div>
+  </Navbar>
 );
 
 export default NavBar;

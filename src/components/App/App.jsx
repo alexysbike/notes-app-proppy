@@ -3,7 +3,6 @@ import { dispatch } from '@rematch/core';
 import { attach } from 'proppy-react';
 import { didSubscribe } from 'proppy';
 import NavBar from '../NavBar';
-import NewNote from '../NewNote';
 import NotesWrapper from '../NotesWrapper';
 import ModalForm from "../ModalForm";
 import './App.css';
@@ -19,7 +18,6 @@ const App = () =>
       <div className="container">
         <div className="columns">
           <div className="column is-12">
-            <NewNote onClick={dispatch.note.updateEditableNote}/>
             <NotesWrapper/>
           </div>
         </div>
